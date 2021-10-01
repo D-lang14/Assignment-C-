@@ -1,3 +1,3 @@
-# Assignment-C++
+# Assignments-Python&C++
 Assignement questions and their solutions 
-Programe in C++ language.
+Programe in Python & C++ language.
