@@ -6,7 +6,6 @@ particular student attended training program or not,
 USING BINARY SEARCH AND FIBONACCI SEARCH
 '''
 
-# Done by SCOC12 Disha Patil
 
 import array as arr
 
