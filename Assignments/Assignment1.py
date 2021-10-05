@@ -10,7 +10,6 @@ d) Number of students who play cricket and football but not badminton.
 (Note- While realizing the group, duplicate entries should be avoided, Do not use SET built-in functions) 
 
 '''
-# Done by SCOC12 Disha Patil
 
 totalStudents = int(input("Enter total number of students in a class: "))
 
