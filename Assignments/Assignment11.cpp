@@ -7,5 +7,3 @@ Write C++ program for simulating job queue.
 Write functions to add job and delete job from queue. 
 
 */
-
-// Done by SCOC12 Disha Patil
