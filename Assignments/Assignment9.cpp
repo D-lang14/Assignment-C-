@@ -14,5 +14,3 @@ a) To print original string followed by reversed string using stack
 b) To check whether given string is palindrome or not 
 
 */
-
-// Done by SCOC12 Disha Patil
