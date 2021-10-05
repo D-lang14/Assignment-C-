@@ -8,5 +8,3 @@ The queen can move as far as she wants in any direction,
 as long as she follows a straight line, Vertically, horizontally, or diagonally. 
 Write C++ program with recursive function for generating all possible configurations for 4-queen's problem. 
 */
-
-// Done by SCOC12 Disha Patil
