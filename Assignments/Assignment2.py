@@ -12,7 +12,6 @@ d) Display mark with highest frequency
 
 '''
 
-# Done by SCOC12 Disha Patil
 
 print("Group A Assignment No B2")
 print("Menu Driver Program for FDS Test of 38 Marks Analysis")
