@@ -12,5 +12,3 @@ c) Display members
 d) Two linked lists exists for two divisions. Concatenate two lists. 
 
 */
-
-// Done by SCOC12 Disha Patil
