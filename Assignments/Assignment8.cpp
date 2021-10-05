@@ -11,5 +11,3 @@ b) Set of students who like either vanilla or butterscotch or not both
 c) Number of students who like neither vanilla nor butterscotch 
 
 */
-
-// Done by SCOC12 Disha Patil
