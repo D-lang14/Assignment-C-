@@ -6,7 +6,6 @@ particular student attended training program or not,
 USING LINEAR SEARCH AND SENTINEL SEARCH.
 '''
 
-# Done by SCOC12 Disha Patil
 
 import array as arr
 
