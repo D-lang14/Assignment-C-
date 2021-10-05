@@ -5,7 +5,6 @@ a) Selection Sort
 b) Bubble sort and display top five scores.
 '''
 
-# Done by SCOC12 Disha Patil
 
 import array as arr
 
