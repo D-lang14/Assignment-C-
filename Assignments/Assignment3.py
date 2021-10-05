@@ -13,7 +13,6 @@ e) To count the occurrences of each word in a given string
 
 '''
 
-# Done by SCOC12 Disha Patil
 
 print("Basic Matrix Operation using Python")
 m1 = []
