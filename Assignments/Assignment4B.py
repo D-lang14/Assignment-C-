@@ -20,6 +20,18 @@ print("All roll_numbers are: ", end="")
 for i in a:
     print(i, end=" ")
 
+def bubbleSort(arr):
+    n = len(arr)
+    for i in range(n-1):
+        for j in range(0, n-i-1):
+            if(arr[j]>arr[j+1]):
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+bubbleSort(a)
+
+print("\nSorted Array")
+for i in range(len(a)):
+    print(a[i], end=" ")
+
 match = int(input("\nEnter the roll_number which you wnat to find: "))
 
 
@@ -28,23 +40,75 @@ match = int(input("\nEnter the roll_number which you wnat to find: "))
 def binarySearch(arr, low, high, match):
     if(high >= low):
         
-        mid = (high + low) / 2
+        mid = int((high + low) / 2)
 
         if(arr[mid] == match):
-            print(mid)
+            return(mid)
         elif arr[mid] > match:
-            return binarySearch(arr, low, mid - 1, match)
-        else:
             return binarySearch(arr, mid + 1, high, match)
-            
+        else:
+            return binarySearch(arr, low, mid - 1, match) 
     else:
-        print(-1)
+        return(-1)
     
-binarySearch(a, 0, len(a)-1, match)
+result = binarySearch(a, 0, len(a)-1, match)
+if(result == -1):
+    print("Element not found")
+else:
+    print("Element is found at location: ", result+1)
 
 
 
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
