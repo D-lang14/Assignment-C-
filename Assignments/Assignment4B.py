@@ -7,18 +7,24 @@ USING BINARY SEARCH AND FIBONACCI SEARCH
 '''
 
 
-import array as arr
+# Accepting the Roll Numbers of the Students
 
-a = arr.array('i', [])
+def acceptRollNo():
+    rollNum = [];
+    numberOfStudents = int(input("Enter the number of Student: "))
+    for i in range(numberOfStudents):
+        rollNum.append(int(input("Enter the Roll Number of Students[{0}]: ".format(i + 1))))
+    return rollNum
 
-n = int(input("Enter total number of roll_numbers registered are: "))
-for i in range(0, n):
-    num = int(input("Enter roll_number seqence %d : " % (i + 1)))
-    a.append(num)
 
-print("All roll_numbers are: ", end="")
-for i in a:
-    print(i, end=" ")
+# Displaying the Roll Numbers of the Students
+
+def displayRollNo(rollNum):
+    for i in range(len(rollNum)):
+        print(rollNum[i],end=" ")
+
+
+# Bubble Sort for sorting the list of Roll Numbers
 
 def bubbleSort(arr):
     n = len(arr)
@@ -26,36 +32,88 @@ def bubbleSort(arr):
         for j in range(0, n-i-1):
             if(arr[j]>arr[j+1]):
                 arr[j], arr[j+1] = arr[j+1], arr[j]
-bubbleSort(a)
 
-print("\nSorted Array")
-for i in range(len(a)):
-    print(a[i], end=" ")
-
-match = int(input("\nEnter the roll_number which you wnat to find: "))
+    for i in range(len(arr)):
+        print(arr[i])
 
 
-# BINARY SEARCH
+# BINARY SEARCH for searching Roll Numbers
 
 def binarySearch(arr, low, high, match):
-    if(high >= low):
+
+    while(high >= low):
         
-        mid = int((high + low) / 2)
+        mid = low + (high - 1) // 2
 
         if(arr[mid] == match):
-            return(mid)
-        elif arr[mid] > match:
-            return binarySearch(arr, mid + 1, high, match)
+            return mid 
+        elif arr[mid] < match:
+            low = mid + 1
         else:
-            return binarySearch(arr, low, mid - 1, match) 
-    else:
-        return(-1)
+            high = mid - 1
     
-result = binarySearch(a, 0, len(a)-1, match)
-if(result == -1):
-    print("Element not found")
-else:
-    print("Element is found at location: ", result+1)
+    return -1
+    
+
+# Main
+
+unsort_Roll = []
+flag = 1
+
+while flag == 1:
+        print("\n---------------------MENU---------------------")
+        print('''
+1. Accept Student Roll Numbers
+2. Display the Roll Numbers of Student
+3. Sort Roll Numbers from the list
+4. Searching Binary Search from the list
+5. Exit\n
+        ''')
+
+        ch = int(input("Enter your choice (from 1 to 5) : "))
+
+        if ch == 1:
+            unsort_Roll = acceptRollNo()
+
+        elif ch == 2:
+            print("\nThese are the student roll numbers who have attended the training session: ")
+            displayRollNo(unsort_Roll)
+
+        elif ch == 3:
+            print("Elements after performing Bubble Sort : ")
+            bubbleSort(unsort_Roll)
+        
+        elif ch == 4:
+            match = int(input("\nEnter the Roll_number which you want to find: "))
+            result = binarySearch(unsort_Roll, 0, len(unsort_Roll)-1, match)
+            # if(result == -1):
+            #     print("Roll number not found")
+            # else:
+            #     print("Roll number found at location: "+ str(unsort_Roll.index(match)))
+
+            if result != -1:
+                 print("The Roll Number",match,"is found at position",result+1)
+            else:
+                 print("Roll Number",match,"not found!!")
+
+        elif ch == 5:
+            a=input("\nDo you want to continue (yes/no): ")
+            if a=="yes":
+                flag=1
+            else:
+                flag=0
+                print("Done!")
+        
+        else:
+            print("Please enter valid choice...")
+            a=input("\nDo you want to continue (yes/no): ")
+            if a=="yes":
+                flag=1
+            else:
+                flag=0
+                print("Done!")
+
+#<-------------------------------------END OF PROGRAM------------------------------------->
 
 
 
@@ -109,6 +167,55 @@ else:
     
     
     
+    
+    
+    
+   
+# Fibonacci Search
+
+# def fib(n):
+#     if(n == 0): 
+#         return 0
+#     if(n == 1):
+#         return 1
+#     return (fib(n-1) + fib(n-2))
+
+# k = 1
+# for k in range(n):
+#     p = fib(k-2)
+#     q = fib(k-3)
+#     mid = n - p + 1
+#     k = k + 1
+    
+# def fibonacci(arr, match, mid, p , q):
+#     if(match == arr[mid-1]):
+#         return mid
+#     if(match > arr[mid-1]):
+#         if(p == 1):
+#             return -1
+#         else:
+#             mid = mid + q
+#             p = p - q
+#             q = q - p 
+#         return fibonacci(a, match, mid, p, q)
+#     else:
+#         if(q == 0):
+#             return -1
+#         else:
+#             mid = mid - q
+#             temp = p - q
+#             p = q
+#             q = temp
+#         return fibonacci(a, match, mid, p, q)
+
+# result2 = fibonacci(a, match, mid, p, q)
+# if(result2 == -1):
+#     print("Roll number not found")
+# else:
+#     print("Roll number is found at location: ",result2)
+
+
+
 
 
 
