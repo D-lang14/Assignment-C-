@@ -13,210 +13,140 @@ d) Display mark with highest frequency
 '''
 
 
-print("Group A Assignment No B2")
-print("Menu Driver Program for FDS Test of 38 Marks Analysis")
-print(" ")
-marks = [' ', 22, 20, 12, 23, 24, 25, ' ', 22, ' ', 25, 28, 25, 25, 25, 25, ' ', 18, 26, 25, 12, 30, ' ', 14, 13, 10, 8,
-         5, 2, 1, 0]
-print("The Marks secured by the Student in FDS out of 30 Marks is :")
-print(marks)
+# Average score of the class
 
-global m1
-m1 = Marks_are_out_of = 30
+def average(listofmarks):
+    sum=0
+    count=0
+    for i in range(len(listofmarks)):
+        if listofmarks[i]!=-999:
+            sum+=listofmarks[i]
+            count+=1
+    avg=sum/count
+    print("Total Marks : ", sum)
+    print("Average Marks : {:0.2f}".format(avg))
 
 
-def mainMenu():
-    print("1. The Average score of class SE C")
-    print("2. Highest score and Lowest score of class")
-    print("3. Absent Students for the Test")
-    print("4. Display Marks with Highest Frequency")
-    print("5. Exit")
-    print(" ")
-    choice = int(input("Enter Choice: "))
+# Highest score in the test for the class
 
-    if (choice == 1):
-        print("Average score of Class SE A is: ")
-        avg_score()
-        print(" ")
-        mainMenu()
+def highestScore(listofmarks):
+    for i in range(len(listofmarks)):
+        if listofmarks[i]!=-999:
+            max=listofmarks[0]
+            break
+    for i in range(1,len(listofmarks)):
+        if listofmarks[i]>max:
+            max=listofmarks[i]
+    return(max)
 
-    elif (choice == 2):
-        print("Highest Score & Lowest Score of Class")
-        high_score()
-        low_score()
-        print(" ")
-        mainMenu()
 
-    elif (choice == 3):
-        print("Absent Students for Test")
-        print_absent_students()
-        print(" ")
-        mainMenu()
+# Lowest score in the test for the class
 
-    elif (choice == 4):
-        print("Marks with Highest Frequency")
-        high_frequency()
-        print(" ")
-        mainMenu()
+def lowestScore(listofmarks):
+    for i in range(len(listofmarks)):
+        if listofmarks[i]!=-999:
+            min=listofmarks[0]
+            break
+    for i in range(1,len(listofmarks)):
+        if listofmarks[i]<min:
+            min=listofmarks[i]
+    return(min)
 
-    elif (choice == 5):
-        exit()
+
+# Counting the number of students absent for the test
+
+def absentcount(listofmarks):
+    count=0
+    for i in range(len(listofmarks)):
+        if listofmarks[i]==-999:
+            count+=1
+    return(count)
+
+
+# Displaying marks with highest frequency
+
+def maxFrequency(listofmarks):
+    i=0
+    Max=0
+    print("Marks  |  Frequency")
+    for j in listofmarks:
+        if (listofmarks.index(j)==i):
+            print(j,"    |  ",listofmarks.count(j))
+            if listofmarks.count(j)>Max:
+                Max=listofmarks.count(j)
+                mark=j
+        i=i+1
+    return(mark,Max)
+
+
+# Main 
+
+marksinFDS=[]
+numberofstudents=int(input("Enter total number of students: "))
+for i in range(numberofstudents):
+    marks=int(input("Enter marks of student "+str(i+1)+": "))
+    marksinFDS.append(marks)
+
+flag=1
+while flag==1:
+    print("\n\n--------------------MENU--------------------\n")
+    print("1. Total and Average Marks of the Class")
+    print("2. Highest and Lowest Marks in the Class")
+    print("3. Number of Students absent for the test")
+    print("4. Marks with Highest Frequency")
+    print("5. Exit\n")
+    ch=int(input("\nEnter your Choice (from 1 to 5): "))
+
+    if ch==1:
+        average(marksinFDS)
+        a = input("\n\nDo you want to continue (yes/no): ")
+        if a == "yes":
+            flag = 1
+        else:
+            flag = 0
+            print("Done!")
+
+    elif ch==2:
+        print("\nHighest Score in Class: ", highestScore(marksinFDS))
+        print("Lowest Score in Class: ", lowestScore(marksinFDS))
+        a = input("\n\nDo you want to continue (yes/no): ")
+        if a == "yes":
+            flag = 1
+        else:
+            flag = 0
+            print("Done!")
+
+    elif ch==3:
+        print("\nNumber of Students absent in the test: ", absentcount(marksinFDS))
+        a = input("\n\nDo you want to continue (yes/no): ")
+        if a == "yes":
+            flag = 1
+        else:
+            flag = 0
+            print("Done!")
+
+    elif ch==4:
+        mark,fr = maxFrequency(marksinFDS)
+        print("\nHighest frequency is of marks {0} that is {1} ".format(mark,fr))
+        a = input("\n\nDo you want to continue (yes/no): ")
+        if a == "yes":
+            flag = 1
+        else:
+            flag = 0
+            print("Done!")
+
+    elif ch==5:
+        flag=0
+        print("Done!")
 
     else:
-        print(" ")
-        print("Wrong Choice")
-        mainMenu()
-
-
-def absent_students():
-    global absent_count1
-    global present_count1
-    absent_count = 0
-    present_count = 0
-    for x in marks:
-        if type(x) == type(" "):
-            absent_count = absent_count + 1
+        print("!!Wrong Choice!! ")
+        a=input("\n\nDo you want to continue (yes/no): ")
+        if a=="yes":
+            flag=1
         else:
-            present_count = present_count + 1
+            flag=0
+            print("Done!")
 
-    absent_count1 = absent_count
-    present_count1 = present_count
-
-
-def print_absent_students():
-    print("Absent Students : ", absent_count1)
-    print("Present Students : ", present_count1)
-
-
-def total_marks():
-    global total_marks1
-    cnt = 0
-    total_marks = 0
-    for x in marks:
-        if type(x) == type(" "):
-            cnt = cnt + 1
-        else:
-            total_marks = total_marks + x
-    total_marks1 = total_marks
-
-
-def avg_score():
-    avg = 0
-    n = len(marks)
-    print(" ")
-    print("Total strength of class : ", n)
-    print("Absent Students : ", absent_count1)
-    print("Present Students :", n - absent_count1)
-    print("Combined Marks of all Students : ", total_marks1)
-    avg = total_marks1 / (n - absent_count1)
-    print("Average Score of Class is: ", avg)
-
-
-def high_score():
-    absent_count = 0
-    max = 0
-    min = 30
-    for x in marks:
-        if type(x) == type(""):
-            absent_count = absent_count + 1
-        elif x > max:
-            max = x
-
-    print("Highest Score is : ", max)
-
-
-def low_score():
-    absent_count = 0
-    min = 30
-    for x in marks:
-        if type(x) == type(""):
-            absent_count = absent_count + 1
-        elif x < min:
-            min = x
-
-    print("Lowest Score is : ", min)
-
-
-def present_marks():
-    temp4 = []
-    present_marks = []
-    for x7 in marks:
-        if type(x7) == type(" "):
-            temp4.append(x7)
-        else:
-            present_marks.append(x7)
-
-    final_present_marks = []
-    temp_tp = []
-    for v in range(30):
-        for i4 in present_marks:
-            if (i4 == v):
-                final_present_marks.append(i4)
-            else:
-                temp_tp.append(v)
-
-    print("Final Present Marks : ", final_present_marks)
-
-    global result
-    result = []
-    for nn in final_present_marks:
-        print("NN : ", nn)
-        if nn not in result:
-            result.append(nn)
-            print("Result : ", result)
-
-    global i5
-    for i5 in result:
-        print(" ")
-
-
-def high_frequency():
-    count = []
-    p = high = mm = 0
-    for n in range(m1):
-        cnt = 0
-        for x in marks:
-            if type(x) == type(" "):
-                p = p + 1
-            elif x == n:
-                cnt = cnt + 1
-                print("CNT : ", cnt)
-        count.append(cnt)
-        print("Count : ", count)
-
-        count1 = []
-        temp = []
-        for c in count:
-            if (c == 0):
-                temp.append(c)
-            else:
-                count1.append(c)
-
-
-    for y in count1:
-        if y > high:
-            high = y
-            
-    for z in range(30):
-        if count[z] == high:
-            mm = z
-
-    print("Marks are : ", marks)
-    print("Sorted Non-Repeating Marks of Present Students are : ", result)
-    print("Count of Marks are : ", count1)
-    print("Recurrence of Marks : ")
-    print("Marks", "\t", "Occurrence")
-    for i9, x8 in zip(result, count1):
-        print(i9, "\t", "  =", "\t", x8)
-
-    print(" ")
-    print("Marks with Highest Frequency is : ", mm)
-    print("Highest Frequency is ", "    \t  ", " : ", high)
-
-
-absent_students()
-total_marks()
-present_marks()
-mainMenu()
-
+#<-------------------------------------END OF PROGRAM------------------------------------->
 
