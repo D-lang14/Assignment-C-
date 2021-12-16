@@ -14,10 +14,13 @@ d) Number of students who play cricket and football but not badminton.
 # Function for removing duplicate entries from the group
 
 def removeDuplicate(dupli):
-    list=[]
+    list = []
     for i in dupli:
         if i not in list:
             list.append(i)
+        else:
+            n = input('Another name instead of duplicate: ')
+            list.append(n)
     return list
 
 # Function for finding intersection between two sets (A&B)
@@ -96,6 +99,8 @@ for i in range(0, n):
     ele = input()
     SEComp.append(ele)  # adding the element
 print("Original list of students in SE Computer: " + str(SEComp))
+SEComp = removeDuplicate(SEComp)
+print("The list of students after removing duplicates: " +str(SEComp))
 
 
 # Creating an empty list for Cricket
@@ -106,7 +111,7 @@ for i in range(0, n):
     ele = input()
     Cricket.append(ele)  # adding the element
 print("Original list of students playing cricket is: " +str(Cricket))
-Cricket=removeDuplicate(Cricket)
+Cricket = removeDuplicate(Cricket)
 print("The list of students playing cricket after removing duplicates: " +str(Cricket))
 
 
@@ -118,7 +123,7 @@ for i in range(0, n):
     ele = input()
     Football.append(ele)  # adding the element
 print("Original list of students playing football: " +str(Football))
-Football=removeDuplicate(Football)
+Football = removeDuplicate(Football)
 print("The list of students playing football after removing duplicates: " +str(Football))
 
 
@@ -130,9 +135,11 @@ for i in range(0, n):
     ele = input()
     Badminton.append(ele)  # adding the element
 print("Original list of students playing badminton: " +str(Badminton))
-Badminton=removeDuplicate(Badminton)
+Badminton = removeDuplicate(Badminton)
 print("The list of students playing badminton after removing duplicates: " +str(Badminton))
 
+
+# Menu Driven Program
 flag=1
 while flag==1:
     print("\n\n--------------------MENU--------------------\n")
