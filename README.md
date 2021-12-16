@@ -19,6 +19,7 @@ d) Number of students who play cricket and football but not badminton.
 - PROBLEM STATEMENT:
 Write a Python program to store marks scored in subject “Fundamental of Data Structure” 
 by N students in the class. Write functions to compute following:-
+
 a) The average score of class 
 b) Highest score and lowest score of class 
 c) Count of students who were absent for the test 
@@ -27,6 +28,7 @@ d) Display mark with highest frequency
 ## Assignment 3:
 - PROBLEM STATEMENT:
 Write a python program to compute following computation on matrix:
+
 A) Addition of two matrices
 B) Subtration of two matrices
 C) Multiplication of two matrices
@@ -52,6 +54,7 @@ USING BINARY SEARCH AND FIBONACCI SEARCH
 - PROBLEM STATEMENT:
 Write a pythonprogram to store first year percentage of students in array. 
 Write function for sorting array of floating point numbers in ascending order using 
+
 a) Selection Sort 
 b) Bubble sort and display top five scores.
 
@@ -70,6 +73,7 @@ Similarly one may cancel the membership of club.
 First node is reserved for president of club and last node is reserved for secretary of club. 
 Write C++ program to maintain club member‘s information using singly linked list. 
 Store student PRN and Name. Write functions to: 
+
 a) Add and delete the members as well as president or even secretary. 
 b) Compute total number of members of club 
 c) Display members 
@@ -81,10 +85,12 @@ In SE Computer Engineering class set A of students like vanilla ice cream and
 set B of students like Butterscotch ice cream. 
 Write C++ program to store two sets using linked list. 
 Compute and display: 
+
 1. Set of students who like either vanilla or butterscotch or both 
 2. Set of students who like both vanilla and butterscotch 
 3. Set of students who like only vanilla but not butterscotch 
 4. Set of students who like only vanilla but not butterscotch 
 5. Number of students who like neither vanilla nor butterscotch
 
-> Much more to come 
+
+*Many more to come* 
